@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const GuessedWords = (props) => {
     let content;
 
-    if (!props.guessWords.length) {
+    if (!props.guessedWords.length) {
         content = <span data-test="component-guess-instructions">Try To Guess the word yo! </span>;
     }
 

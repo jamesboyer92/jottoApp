@@ -13,8 +13,9 @@ export const findByTestAttr = (wrapper, val) => {
 
 /**
  * Checks Supplied Props from component and 
- * @param {*} component 
- * @param {*} conformingProps 
+ * @param { object } component - component we're testing the props of
+ * @param { object } conformingProps - expected props
+ * @returns { testResult }
  */
 export const checkProps = (component, conformingProps) => {
     const propError = CheckPropTypes(component.propTypes, conformingProps, 'prop', component.name);

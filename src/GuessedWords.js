@@ -5,7 +5,36 @@ const GuessedWords = (props) => {
     let content;
 
     if (!props.guessedWords.length) {
-        content = <span data-test="component-guess-instructions">Try To Guess the word yo! </span>;
+        content = <span data-test="guess-instructions">Try To Guess the word yo! </span>;
+    } else {
+
+        const guessedWords = props.guessedWords.map((word, index) => (
+            <tr data-test="guessed-word" key={index}>
+                <td>{word.guessedWord}</td>
+                <td>{word.letterMatchCount}</td>
+            </tr>
+        ));
+
+        content = (
+            <div data-test="guessed-words">
+                <h3>GuessWords</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Guess
+                            </th>
+                            <th>
+                                Matching Letters
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {guessedWords}
+                    </tbody>
+                </table>
+            </div>
+        )
     }
 
     return (

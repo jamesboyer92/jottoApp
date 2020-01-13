@@ -1,7 +1,20 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAttr } from '../test/testUtils';
+import { findByTestAttr, storeFactory } from '../test/testUtils';
 import Input from './Input'
+
+/**
+ * Factor function to create a SHallowWrapper for the Input Component
+ * @param {object} initialState 
+ * @returns {ShallowWrapper}
+ */
+
+
+const setup = (initialState = {}) => {
+    const store = storeFactory(initialState);
+    const wrapper = shallow(<Input store={store} />).dive().dive();
+    return wrapper;
+}
 
 describe('render', () => {
     describe('word has not been guessed', () => {
